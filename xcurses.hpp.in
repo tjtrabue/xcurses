@@ -1,0 +1,4 @@
+// the configured options and settings for draconian
+#cmakedefine xcurses_VERSION_MAJOR "@xcurses_VERSION_MAJOR@"
+#cmakedefine xcurses_VERSION_MINOR "@xcurses_VERSION_MINOR@"
+#cmakedefine xcurses_VERSION_PATCH "@xcurses_VERSION_PATCH@"
