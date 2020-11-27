@@ -1,0 +1,4 @@
+clang
+-Wall
+%c -std=c11
+%cpp -std=c++17

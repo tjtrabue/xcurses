@@ -1,3 +1,6 @@
 # xcurses
 
-An object-oriented NCURSES implementation in C++
+Object-oriented C++ bindings to NCURSES.
+
+This library depends upon the underlying `ncurses` library, so the developer
+must install `ncurses`, as well.
