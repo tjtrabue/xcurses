@@ -14,6 +14,7 @@ set(DebugFlags "-g")
 set(CMAKE_C_FLAGS "${WarningFlags} -std=c99")
 set(CMAKE_CXX_FLAGS "${WarningFlags}")
 
+# Additional compiler flags used for building debuggable targets.
 set(CMAKE_C_FLAGS_DEBUG "${DebugFlags}")
 set(CMAKE_CXX_FLAGS_DEBUG "${DebugFlags}")
 
@@ -37,4 +38,4 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${LibOutputDir}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set library target names
-set(XCursesLib "xcurses")
+set(MainLib "xcurses")
