@@ -6,6 +6,9 @@ add_library("${MainLib}" SHARED)
 # panel   - panel extension library for ncurses
 target_link_libraries("${MainLib}" ncurses panel)
 
+# List directories containing header files for the main library.
+target_include_directories("${MainLib}" PRIVATE window)
+
 # Make sure to set the linker language for the library to C++,
 # because sometimes CMake has issues figuring out this property
 # on its own.
