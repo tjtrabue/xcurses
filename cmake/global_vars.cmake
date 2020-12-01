@@ -39,3 +39,4 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set library target names
 set(MainLib "xcurses")
+set(PanelLib "xpanel")

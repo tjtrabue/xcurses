@@ -3,8 +3,7 @@ add_library("${MainLib}" SHARED)
 
 # Add library dependencies to xcurses to be linked
 # ncurses - The native ncurses implementation
-# panel   - panel extension library for ncurses
-target_link_libraries("${MainLib}" ncurses panel)
+target_link_libraries("${MainLib}" ncurses)
 
 # List directories containing header files for the main library.
 target_include_directories("${MainLib}" PRIVATE window)
@@ -16,3 +15,7 @@ set_target_properties("${MainLib}" PROPERTIES LINKER_LANGUAGE CXX)
 
 # Source files to be used for xcurses
 target_sources("${MainLib}" PUBLIC xcurses.hpp)
+
+# Add extra subdir lists.
+add_subdirectory("window")
+add_subdirectory("panel")
