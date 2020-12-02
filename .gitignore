@@ -49,3 +49,6 @@ Debug/
 # Doxygen documentation artifacts
 latex/
 html/
+
+# Clangd cache files
+.cache
