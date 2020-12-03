@@ -2,6 +2,8 @@
 #define _WINDOW_HEADER_
 
 #include <curses.h>
+#include <utility>
+#include <vector>
 
 /**
  * Primary xcurses namespace.
@@ -42,16 +44,68 @@ public:
    */
   ~Window();
 
+  // *****************
+  // *** Operators ***
+  // *****************
+
   /**
    * Overloaded assignment operator
    */
   Window &operator=(const Window &win);
+
+  // ************************
+  // *** Instance methods ***
+  // ************************
+
+  /**
+   * Produce an exact copy of this Window
+   */
+  Window Duplicate();
+
+  /**
+   * Creates a nested child Window inside this Window.
+   * The position of the child Window is relative to the screen,
+   * not to the parent Window.
+   */
+  void CreateSubWindow(int num_lines, int num_cols, int begin_y, int begin_x);
+
+  /**
+   * Creates a nested child Window inside this Window.
+   * The position of the child Window is relative to the parent.
+   */
+  void CreateDerivedWindow(int num_lines, int num_cols, int begin_y,
+                           int begin_x);
+
+  /**
+   * Retrieve the cursor's current position within the Window.
+   */
+  std::pair<int, int> GetCursorPosition();
+
+  /**
+   * Retrieve the cursor's current y-coordinate.
+   */
+  int GetCursorY();
+
+  /**
+   * Retrieve the cursor's current x-coordinate.
+   */
+  int GetCursorX();
+
+  /**
+   * Move the Window to the given (x,y) coordinates.
+   */
+  bool Move(int pos_y, int pos_x);
 
 private:
   /**
    * Encapsulated ncurses WINDOW structure.
    */
   WINDOW *win_;
+
+  /**
+   * List of this Window's child Windows
+   */
+  std::vector<Window> children_;
 };
 
 } // namespace xcu
